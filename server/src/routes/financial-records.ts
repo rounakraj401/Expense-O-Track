@@ -22,6 +22,9 @@ router.post("/", async (req: Request, res: Response) => {
     const newRecord = new FinancialRecordModel(newRecordBody);
     const savedRecord = await newRecord.save();
 
+   console.log("📩 Incoming POST /financial-records");
+   console.log("Body received:", req.body);
+
     res.status(200).send(savedRecord);
   } catch (err) {
     res.status(500).send(err);

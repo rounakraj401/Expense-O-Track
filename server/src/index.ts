@@ -10,17 +10,19 @@ const app: Express = express();
 const port = process.env.PORT || 3001;
 const mongoURI: string = process.env.MONGO_URI || "";
 const allowedOrigins = [
-  "http://localhost:5173",                       // local frontend
-  "https://expense-o-track.vercel.app"           // deployed frontend
+  "http://localhost:5173",
+  "https://expense-o-track.vercel.app"
 ];
 
-
-app.use(express.json());
 app.use(cors({
   origin: allowedOrigins,
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
 }));
+
+// ✅ Handle preflight requests
+app.options("*", cors());
+app.use(express.json());
 
 mongoose
   .connect(mongoURI)

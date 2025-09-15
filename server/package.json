@@ -4,18 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-<<<<<<< HEAD
-  "start": "node ./build/index.js",
-  "build": "tsc -p .",
-  "dev": "nodemon ./src/index.ts"
-}
-,
-=======
     "start": "node ./build/index.js",
     "build": "tsc -p .",
     "dev": "nodemon ./src/index.ts"
   },
->>>>>>> 6826af1d1e95b923be48711b0ae6a66afbd5c64f
   "dependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
